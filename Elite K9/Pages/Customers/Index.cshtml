@@ -1,0 +1,38 @@
+﻿@page
+@model Elite_K9.Pages.Customers.IndexModel
+@{
+}
+
+<br />
+<h2>List of Customers</h2>
+<a class="btn btn-primary btn-sm" href="/Customers/Create">New Customer</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Dog Breed</th>
+            <th>Dog Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listCustomers)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.firstName</td>
+                <td>@item.lastName</td>
+                <td>@item.dogBreed</td>
+                <td>@item.dogName</td>
+                <td>
+                    <a class="btn btn-warning btn-sm"
+                   href="/Customers/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" 
+                    href="/Customers/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

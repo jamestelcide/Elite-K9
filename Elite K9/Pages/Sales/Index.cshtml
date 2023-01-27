@@ -1,0 +1,42 @@
+﻿@page
+@model Elite_K9.Pages.Sales.IndexModel
+@{
+}
+
+<br />
+<h2>List of Sales</h2>
+<a class="btn btn-primary btn-sm" href="/Sales/Create">New Sale</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Trainings</th>
+            <th>Customer</th>
+            <th>Dog Name</th>
+            <th>Trainer</th>
+            <th>Sale Price</th>
+            <th>Sale Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listSales)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.training</td>
+                <td>@item.customer</td>
+                <td>@item.dogName</td>
+                <td>@item.trainer</td>
+                <td>@item.salePrice</td>
+                <td>@item.saleDate</td>
+                <td>
+                    <a class="btn btn-warning btn-sm"
+                   href="/Sales/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" 
+                    href="/Sales/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

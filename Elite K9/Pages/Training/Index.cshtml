@@ -1,0 +1,36 @@
+﻿@page
+@model Elite_K9.Pages.Training.IndexModel
+@{
+}
+
+<br />
+<h2>List of Trainings</h2>
+<a class="btn btn-primary btn-sm" href="/Training/Create">New Training</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Trainings</th>
+            <th>Price</th>
+            <th>Commission</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listTrainings)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.training</td>
+                <td>@item.price</td>
+                <td>@item.commission</td>
+                <td>
+                    <a class="btn btn-warning btn-sm"
+                   href="/Training/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" 
+                    href="/Training/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
